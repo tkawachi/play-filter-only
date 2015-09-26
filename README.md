@@ -13,7 +13,7 @@ For example, to create a `CSRFFilter` which is only applied to paths starting wi
 
 ```scala
 import com.github.tkawachi.PlayFilterOnly._
-CSRFFilter().only(_.path.startWith("/foo"))
+CSRFFilter().only(_.path.startsWith("/foo"))
 ```
 
 `only()` takes a function to choose which request to apply a filter.

@@ -11,7 +11,7 @@ import play.api.mvc.{ RequestHeader, EssentialAction, EssentialFilter }
  * {{{
  *   import com.github.tkawachi.PlayFilterOnly._
  *
- *   CSRFFilter().only(_.path.startWith("/foo"))
+ *   CSRFFilter().only(_.path.startsWith("/foo"))
  * }}}
  */
 case class PlayFilterOnly(underlying: EssentialFilter, predicate: RequestHeader => Boolean)
