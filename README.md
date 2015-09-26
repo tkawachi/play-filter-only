@@ -1,7 +1,23 @@
 # play-filter-only
 
-Utility to apply Play's `EssentialFilter` to only specific paths
+Play's filter is basically applied to all requests. Sometimes I want to apply a
+filter to only specific paths. `PlayFilterOnly` wraps a filter, and selectively apply
+an underlying filter by given predicate.
 
-See http://qiita.com/kawachi/items/1e74647ffe1993b70a62 (Japanese)
+To use play-filter-only, add a following line to `build.sbt`.
+
+    libraryDependencies += "com.github.tkawachi" %% "play-filter-only" % "0.0.2"
+
+For example, to create a `CSRFFilter` which is only applied to paths starting with
+`/foo`.
+
+```scala
+import com.github.tkawachi.PlayFilterOnly._
+CSRFFilter().only(_.path.startWith("/foo"))
+```
+
+`only()` takes a function to choose which request to apply a filter.
+
+See http://qiita.com/kawachi/items/1e74647ffe1993b70a62 (Japanese).
 
 This software is released under the MIT License.
