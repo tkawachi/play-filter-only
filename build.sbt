@@ -14,6 +14,7 @@ lazy val root = project.in(file("."))
       scalacOptions := Seq("-deprecation", "-feature", "-unchecked", "-Xlint"),
       libraryDependencies ++= Seq(
         "com.typesafe.play" %% "play" % "2.4.3" % "provided"
-      )
+      ),
+      wartremoverErrors ++= Warts.unsafe
     ) ++ scalariformSettings: _*
   )
