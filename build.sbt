@@ -9,11 +9,11 @@ lazy val root = project.in(file("."))
         url("https://github.com/tkawachi/play-filter-only/"),
         "scm:git:github.com:tkawachi/play-filter-only.git"
       )),
-      scalaVersion := "2.11.8",
-      crossScalaVersions := Seq("2.11.8"),
+      scalaVersion := "2.12.3",
+      crossScalaVersions := Seq("2.12.3", "2.11.11"),
       scalacOptions := Seq("-deprecation", "-feature", "-unchecked", "-Xlint"),
       libraryDependencies ++= Seq(
-        "com.typesafe.play" %% "play" % "2.5.4" % "provided"
+        "com.typesafe.play" %% "play" % "2.6.3" % "provided"
       ),
       wartremoverErrors ++= Warts.unsafe
     ) ++ scalariformSettings: _*
