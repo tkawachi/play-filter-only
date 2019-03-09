@@ -15,7 +15,7 @@ import play.api.mvc.{ RequestHeader, EssentialAction, EssentialFilter }
  * }}}
  */
 case class PlayFilterOnly(underlying: EssentialFilter, predicate: RequestHeader => Boolean)
-    extends EssentialFilter {
+  extends EssentialFilter {
 
   /**
    * Apply underlying filter only when predicate returns true.
@@ -29,7 +29,7 @@ case class PlayFilterOnly(underlying: EssentialFilter, predicate: RequestHeader 
 object PlayFilterOnly {
 
   implicit class EssentialFilterFilterOnlyImplicit(val filter: EssentialFilter)
-      extends AnyVal {
+    extends AnyVal {
     def only(predicate: RequestHeader => Boolean) = new PlayFilterOnly(filter, predicate)
   }
 }

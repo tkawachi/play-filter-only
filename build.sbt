@@ -1,3 +1,5 @@
+import scalariform.formatter.preferences._
+
 lazy val root = project.in(file("."))
   .settings(
     Seq(
@@ -15,6 +17,10 @@ lazy val root = project.in(file("."))
       libraryDependencies ++= Seq(
         "com.typesafe.play" %% "play" % "2.6.3" % "provided"
       ),
-      wartremoverErrors ++= Warts.unsafe
-    ) ++ scalariformSettings: _*
+      wartremoverErrors ++= Warts.unsafe,
+      scalariformPreferences := scalariformPreferences.value
+        .setPreference(AlignSingleLineCaseStatements, true)
+        .setPreference(DoubleIndentConstructorArguments, true)
+        .setPreference(DanglingCloseParenthesis, Preserve)
+    )
   )
