@@ -1,3 +1,5 @@
+import scalariform.formatter.preferences._
+
 lazy val root = project.in(file("."))
   .settings(
     Seq(
@@ -9,12 +11,16 @@ lazy val root = project.in(file("."))
         url("https://github.com/tkawachi/play-filter-only/"),
         "scm:git:github.com:tkawachi/play-filter-only.git"
       )),
-      scalaVersion := "2.12.3",
-      crossScalaVersions := Seq("2.12.3", "2.11.11"),
+      scalaVersion := "2.12.8",
+      crossScalaVersions := Seq("2.12.8", "2.11.12"),
       scalacOptions := Seq("-deprecation", "-feature", "-unchecked", "-Xlint"),
       libraryDependencies ++= Seq(
-        "com.typesafe.play" %% "play" % "2.6.3" % "provided"
+        "com.typesafe.play" %% "play" % "2.7.0" % "provided"
       ),
-      wartremoverErrors ++= Warts.unsafe
-    ) ++ scalariformSettings: _*
+      wartremoverErrors ++= Warts.unsafe,
+      scalariformPreferences := scalariformPreferences.value
+        .setPreference(AlignSingleLineCaseStatements, true)
+        .setPreference(DoubleIndentConstructorArguments, true)
+        .setPreference(DanglingCloseParenthesis, Preserve)
+    )
   )
