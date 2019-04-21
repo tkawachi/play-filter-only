@@ -17,6 +17,8 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges
 )
 
+publishTo := sonatypePublishTo.value
+
 pomExtra := {
   <url>https://github.com/tkawachi/play-filter-only/</url>
     <developers>
